@@ -19,12 +19,14 @@ function mouse_pos()
 end
 
 
+-- Use: mouse_click() == 1
 function mouse_click()
 	poke(0x5F2D, 1)
 	return stat(34)
 end
 
 
+-- Use: just_clicked() == 1
 function just_clicked()
 	return mouse_click() & (~__mouse)
 end
