@@ -32,6 +32,12 @@ function just_clicked()
 end
 
 
+function gs_change(new_gs)
+	gs = new_gs
+	gs:init()
+end
+
+
 -- MAIN LOOP
 function _init()
 	gs:init()
