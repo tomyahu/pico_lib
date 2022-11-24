@@ -10,7 +10,7 @@ function game_over_gs.init(self)
 end
 
 function game_over_gs.update(self)
-	if btn(5) then gs_change(self.next_gs) end
+	if btn(4) then gs_change(self.next_gs) end
 end
 
 function game_over_gs.draw(self)
