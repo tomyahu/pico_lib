@@ -37,11 +37,15 @@ function deep_copy( orig )
 end
 
 
-function draw_menu(self, x, y, width, menu)
-	for i, option in pairs( self.menu.options ) do
-		if i == self.menu.selected+1 then
-			print( '★', x+2, y - 6 + i*8, 1)
+function draw_menu(menu, selected, x, y, width)
+	local height = ( # menu ) * 8 + 1
+	rectfill(x, y, x+width, y+height, 1)
+	rect(x, y, x+width, y+height, 7)
+
+	for i, option in pairs( menu ) do
+		if i == selected then
+			print( '★', x+2, y - 6 + i*8, 7)
 		end
-		print( option.name, x+10, y - 6 + i*8, 1)
+		print( option.name, x+10, y - 6 + i*8, 7)
 	end
 end
