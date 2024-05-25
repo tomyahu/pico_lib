@@ -48,6 +48,15 @@ function vec_norm(p1)
 	return sqrt(vec_norm2(p1))
 end
 
+function vec_normalize(p1)
+	local norm = vec_norm(p1)
+	local res = {}
+	for i=1,#p1 do
+		add(res, p1[i] / norm)
+	end
+	return res
+end
+
 function vec_proj(p1, p2)
 	return vec_mult( p2, vec_dot(p1, p2) / vec_norm2(p2) )
 end
