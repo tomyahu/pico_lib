@@ -19,6 +19,9 @@ function new_scheduler()
 			end
 
 			self.current_time += 1
+		end,
+		clear=function(self)
+			self.scheduled_functions = {}
 		end
 	}
 end
