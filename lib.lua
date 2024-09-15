@@ -40,16 +40,14 @@ function deep_copy( orig )
 	return copy
 end
 
+function point_in_rect( x, y, x1, y1, width, height )
+	return mid(x1, x, x1+width) == x and mid(y1, y, y1+height) == y
+end
 
-function draw_menu(menu, selected, x, y, width)
-	local height = ( # menu ) * 8 + 1
-	rectfill(x, y, x+width, y+height, 1)
-	rect(x, y, x+width, y+height, 7)
-
-	for i, option in pairs( menu ) do
-		if i == selected then
-			print( '★', x+2, y - 6 + i*8, 7)
-		end
-		print( option.name, x+10, y - 6 + i*8, 7)
-	end
+function rects_intersect( x1, y1, w1, h1, x2, y2, w2, h2 )
+	local res = true
+	res = res and x1 < x2+w2
+	res = res and x2 > x1+w1
+	res = res and y1 < y2+h2
+	res = res and y2 < y2+h2
 end
