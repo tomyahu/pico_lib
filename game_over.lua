@@ -1,4 +1,9 @@
--- requires lib.lua and main.lua
+--[[
+REQUIRES
+lib.lua
+ui.lua
+main.lua
+]]--
 game_over_gs = {}
 game_over_gs.next_gs = gs
 

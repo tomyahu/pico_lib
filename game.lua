@@ -1,12 +1,18 @@
 overworld_gs = {}
-overworld_gs.menu = {
+overworld_gs.menu = get_menu({
 	{
-		name='item1'
+		'item1'
 	},
 	{
-		name='item2'
+		'item2'
 	},
-}
+	{
+		'item3'
+	},
+	{
+		'item4'
+	},
+})
 
 
 
@@ -14,11 +20,13 @@ function overworld_gs.init(self)
 end
 
 function overworld_gs.update(self)
+	if just_pressed(2) then self.menu:back() end
+	if just_pressed(3) then self.menu:next() end
 end
 
 function overworld_gs.draw(self)
 	cls()
-	draw_menu(self.menu, 1, 2, 2, 40)
+	self.menu:draw(0,0)
 end
 
 gs = overworld_gs
