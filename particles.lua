@@ -1,4 +1,4 @@
-function new_particle_emmitter()
+function new_particle_emiter()
 	return {
 		particles= {},
 		current_time= 0,
