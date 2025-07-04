@@ -1,4 +1,4 @@
-function Deque()
+function deque()
 	return {
 		elements = {},
 

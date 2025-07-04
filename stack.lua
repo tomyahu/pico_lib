@@ -1,4 +1,4 @@
-function Stack()
+function stack()
 	return {
 		elements = {},
 
