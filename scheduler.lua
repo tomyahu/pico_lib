@@ -2,7 +2,7 @@ function new_scheduler()
 	return {
 		current_time = 0,
 		scheduled_functions={},
-		schedule_function= function(self, func, frames)
+		schedule= function(self, func, frames)
 			local time_hash = "" .. (frames+self.current_time)
 			if self.scheduled_functions[time_hash] == nil then
 				self.scheduled_functions[time_hash] = {}
