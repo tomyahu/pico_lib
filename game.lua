@@ -1,32 +1,35 @@
-overworld_gs = {}
-overworld_gs.menu = get_menu({
-	{
-		'item1'
-	},
-	{
-		'item2'
-	},
-	{
-		'item3'
-	},
-	{
-		'item4'
-	},
-})
+test_gs = {
+	p1={flr(rnd()*128), flr(rnd()*128)},
+	p2={flr(rnd()*128), flr(rnd()*128)},
+	p3={flr(rnd()*128), flr(rnd()*128)},
+}
 
 
-
-function overworld_gs.init(self)
+function test_gs.init(self)
 end
 
-function overworld_gs.update(self)
-	if just_pressed(2) then self.menu:back() end
-	if just_pressed(3) then self.menu:next() end
+function test_gs.update(self)
+	self.p1={flr(rnd()*128), flr(rnd()*128)}
+	self.p2={flr(rnd()*128), flr(rnd()*128)}
+	self.p3={flr(rnd()*128), flr(rnd()*128)}
 end
 
-function overworld_gs.draw(self)
+function test_gs.draw(self)
 	cls()
-	self.menu:draw(0,0)
+	print(
+		self.p1[1] ..
+		" " .. self.p1[2] ..
+		" " .. self.p2[1] ..
+		" " .. self.p2[2] ..
+		" " .. self.p3[1] ..
+		" " .. self.p3[2]
+	)
+	trifill(
+		self.p1[1], self.p1[2],
+		self.p2[1], self.p2[2],
+		self.p3[1], self.p3[2],
+		7
+	)
 end
 
-gs = overworld_gs
+gs = test_gs
