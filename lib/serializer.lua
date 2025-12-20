@@ -1,5 +1,5 @@
-START_STR = 97
-BYTE_SIZE = 5
+START_STR = 97 -- First character (a)
+BYTE_SIZE = 5 -- Amount of entropy (32)
 
 
 function get_bit(number, i)
@@ -74,8 +74,9 @@ function get_from_numbers( bytes, i, j )
 	return res
 end
 
-
-function decode_from_string(string, keys)
+-- Takes a string and and array of how much bits were used to serialize
+-- Returns an array of numbers with the decoded values.
+function deserialize(string, keys)
 	local numbers = string_to_numbers(string)
 	local res = {}
 	local acc = 0
@@ -88,15 +89,17 @@ function decode_from_string(string, keys)
 end
 
 
-function encode_to_string( array, keys )
+-- Takes an array of numbers and and array of how much bits do we use to serialize
+-- Returns a string with the encoded values.
+function serialize( array, keys )
 	local arr_index = 1
 	local acc = 0
 	local byte_num = 0
 	local res = ""
 	for _, k in pairs(keys) do
-		for i=1,k do
-			arr_val = array[arr_index]
+		arr_val = array[arr_index]
 
+		for i=1,k do
 			acc += get_bit(arr_val, i-1) << byte_num
 			byte_num += 1
 
