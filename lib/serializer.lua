@@ -1,3 +1,5 @@
+-- These values are like this to use them for save files as strings
+-- You can change these to 0 and 8 for it to work as an optimal serializer
 START_STR = 97 -- First character (a)
 BYTE_SIZE = 5 -- Amount of entropy (32)
 
